@@ -3,6 +3,9 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
+  // app.setGlobalPrefix('/api'); // use api as global prefix if you don't have subdomain
+  await app.listen(process.env.PORT, () => {
+    console.log(`App is running on: http://localhost:${process.env.PORT}`);
+  });
 }
 bootstrap();
