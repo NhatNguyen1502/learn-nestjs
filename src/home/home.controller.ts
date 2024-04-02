@@ -3,7 +3,7 @@ import { Request, Response, } from 'express';
 
 @Controller('home/:id/:name')
 export class HomeController {
-    @Get()
+    @Get('')
     getHome(@Req() req: Request, @Res() res: Response, @Param() params: object, @Query() query: string, @Session() session: Record<string, any>, @HostParam() host: string) {
         // route: /home/1/nhat?a=1&b=2
         console.log('param:', params); //param: { id: '1', name: 'nhat' }
