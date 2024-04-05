@@ -18,10 +18,10 @@ export class UserService {
   }
   // create a user
   create(createUserDto: CreateUserDto) {
-    return this.usersRepository.create(createUserDto);
+    // return this.usersRepository.create(createUserDto);
   }
 
-  findOne(id: number) {
+  findOne(id: number): Promise<Users | null> {
     return this.usersRepository.findOneBy({ id });
   }
 

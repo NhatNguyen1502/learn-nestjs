@@ -40,6 +40,7 @@ export class UserController {
   @ApiOperation({ summary: 'Get user by ID' })
   @ApiParam({ name: 'id', description: 'User ID' })
   @ApiResponse({ status: 200, description: 'Return the user' })
+  @ApiResponse({ status: 404, description: 'find not found' })
   findOne(@Param('id') id: string) {
     return this.userService.findOne(+id);
   }

@@ -6,26 +6,18 @@ import { HomeController } from './home/home.controller';
 import { UserModule } from './user/user.module';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Users } from './user/entities/users.entity';
-
+import { dataSourceOptions } from './database/dataSource';
+import { CommentModule } from './comment/comment.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ 
+    ConfigModule.forRoot({
       isGlobal: true, // use for all module
-      envFilePath: '.env', 
-    }), 
-    UserModule,
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'mysql3306',
-      database: 'test',
-      entities: [Users],
-      // synchronize: true,
+      envFilePath: '.env',
     }),
+    TypeOrmModule.forRoot(dataSourceOptions),
+    UserModule,
+    CommentModule,
   ],
   controllers: [AppController, HomeController],
   providers: [AppService],
