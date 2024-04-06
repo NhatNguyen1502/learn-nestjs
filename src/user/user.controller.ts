@@ -28,7 +28,7 @@ export class UserController {
   @ApiOperation({ summary: 'Create a new user' })
   @ApiBody({ type: CreateUserDto })
   create(@Body() user: CreateUserDto) {
-    return this.userService.create(user);
+    // return this.userService.create(user);
   }
 
   @Get()

@@ -17,9 +17,9 @@ export class UserService {
     return this.usersRepository.find();
   }
   // create a user
-  create(createUserDto: CreateUserDto) {
-    // return this.usersRepository.create(createUserDto);
-  }
+  // create(createUserDto: CreateUserDto) {
+  //   return this.usersRepository.create(createUserDto);
+  // }
 
   findOne(id: number): Promise<Users | null> {
     return this.usersRepository.findOneBy({ id });

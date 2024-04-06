@@ -8,6 +8,8 @@ import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { dataSourceOptions } from './database/dataSource';
 import { CommentModule } from './comment/comment.module';
+import { MongooseModule } from '@nestjs/mongoose';
+import { PostModule } from './post/post.module';
 
 @Module({
   imports: [
@@ -16,8 +18,12 @@ import { CommentModule } from './comment/comment.module';
       envFilePath: '.env',
     }),
     TypeOrmModule.forRoot(dataSourceOptions),
+    MongooseModule.forRoot(
+      'mongodb+srv://openuniverse:openuniverse@openuniverse.nalsuba.mongodb.net/test?retryWrites=true&w=majority&appName=OpenUniverse',
+    ),
     UserModule,
     CommentModule,
+    PostModule,
   ],
   controllers: [AppController, HomeController],
   providers: [AppService],

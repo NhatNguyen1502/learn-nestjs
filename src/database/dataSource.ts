@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-import { Users } from 'src/user/entities/users.entity';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 export const dataSourceOptions: DataSourceOptions = {
